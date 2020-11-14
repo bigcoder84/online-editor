@@ -17,21 +17,39 @@ import xmlFomatter from "@/utils/xmlFomatter";
 
 export default {
   name: "editor",
-  data() {
-    return {
-      content: ""
-    }
-  },
   methods: {},
   mounted() {
     const editor = new Editor('#editor');
     //高度
     editor.config.height = 500
+    // 菜单栏
+    editor.config.menus = [
+      'head',
+      'justify',
+      'bold',
+      'fontSize',
+      'fontName',
+      'italic',
+      'underline',
+      'strikeThrough',
+      'indent',
+      'lineHeight',
+      'foreColor',
+      'backColor',
+      'link',
+      'list',
+      'quote',
+      'emoticon',
+      'image',
+      'table',
+      'splitLine',
+      'undo',
+      'redo',
+    ]
+
     editor.config.onchange = (html) => {
-      // 第二步，监控变化，同步更新到 textarea
-      let xml = xmlFomatter(html);
-      document.getElementById("text").value = xml;
-      this.content = xml;
+      // 监控变化，同步更新到 textarea
+      document.getElementById("text").value = xmlFomatter(html);
     }
     editor.create();
   }

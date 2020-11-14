@@ -1,5 +1,5 @@
 //格式化代码函数,已经用原生方式写好了不需要改动,直接引用就好
-export default function formatXml(text) {
+export default function xmlFormatter(text) {
     //去掉多余的空格
     text = '\n' + text.replace(/(<\w+)(\s.*?>)/g, function ($0, name, props) {
         return name + ' ' + props.replace(/\s+(\w+=)/g, " $1");
