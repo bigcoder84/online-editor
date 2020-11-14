@@ -14,10 +14,21 @@ const vueRouter = new VueRouter({
         },
         {
             path: "/characterConvertEditor",
-            component: CharacterConvertEditor
+            component: CharacterConvertEditor,
+            meta:{
+                title: '富文本转HTML工具'
+            }
         },
     ],
     mode: 'history'
 });
+
+vueRouter.beforeEach((to, from, next) => {
+    /* 路由发生变化修改页面title */
+    if (to.meta.title) {
+        document.title = to.meta.title
+    }
+    next()
+})
 
 export default vueRouter;
