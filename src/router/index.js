@@ -10,10 +10,10 @@ const vueRouter = new VueRouter({
     routes: [
         {
             path: "",
-            redirect: "/characterConvertEditor"
+            redirect: "/rich-text-editor"
         },
         {
-            path: "/characterConvertEditor",
+            path: "/rich-text-editor",
             component: CharacterConvertEditor,
             meta:{
                 title: '富文本转HTML工具'
